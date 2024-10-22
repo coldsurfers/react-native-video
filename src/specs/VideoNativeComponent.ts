@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import type {HostComponent, ViewProps} from 'react-native';
-import {requireNativeComponent} from 'react-native';
 import type {
   DirectEventHandler,
   Double,
@@ -8,6 +7,7 @@ import type {
   Int32,
   WithDefault,
 } from 'react-native/Libraries/Types/CodegenTypes';
+import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
 
 // -------- There are types for native component (future codegen) --------
 // if you are looking for types for react component, see src/types/video.ts
@@ -403,6 +403,6 @@ export interface VideoNativeProps extends ViewProps {
 
 type NativeVideoComponentType = HostComponent<VideoNativeProps>;
 
-export default requireNativeComponent<VideoNativeProps>(
-  'RCTVideo',
+export default codegenNativeComponent<VideoNativeProps>(
+  'RNCVideo',
 ) as NativeVideoComponentType;
